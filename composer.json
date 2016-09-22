@@ -1,0 +1,14 @@
+{
+    "name": "wcs/wcsform",
+    "require-dev": {
+        "phpunit/phpunit": "^5.5"
+    },
+    "authors": [
+        {
+            "name": "Laurent Aubertin",
+            "email": "laubertin1967@gmail.com"
+        }
+    ],
+    "require": {
+    }
+}
