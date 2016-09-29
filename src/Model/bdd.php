@@ -6,12 +6,12 @@
  * Time: 12:56
  */
 
-    function getConnection()
+    function getConnection($db)
     {
         $user       = "root";
         $password   = "";
         $host       = "localhost";
-        $db         = "test";
+        //$db         = "test";
 
         $mysqli = new mysqli($host, $user, $password, $db);
         if ($mysqli->connect_errno) {
@@ -23,7 +23,8 @@
     }
 
     function execSql($mysqli, $sql){
-        if (!$result = $mysqli->query($sql)){
+        $result = $mysqli->query($sql);
+        if ($result == 0){
             echo "failed to run query : (" . $mysqli->errno . ") " . $mysqli->error;
             die();
         }

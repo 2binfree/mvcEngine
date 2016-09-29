@@ -10,14 +10,14 @@
 
     $firstname   = $_POST["firstname"];
     $lastname    = $_POST["lastname"];
-    $email       = $_POST["email"];
-    $password    = $_POST["password"];
+    $email       = $_POST["mail"];
+    $password    = $_POST["pwd"];
 
     $conn = getConnection();
 
     $sql = "INSERT INTO user (first_name, last_name, email, password) VALUES ('$firstname', '$lastname', '$email', '$password');";
 
-    execSql($conn, $sql);
+    $result = execSql($conn, $sql);
 
     header('Location: ../public/index.php');
 
