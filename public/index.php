@@ -6,6 +6,6 @@
  */
 require_once "../src/App.php";
 
-$app = new wcs\App();
-echo $app->getView()->render($app->getController()->getResponse());
+$app = wcs\App::getInstance();
+echo $app->getView()->render();
 

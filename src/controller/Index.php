@@ -9,9 +9,16 @@
 
 namespace wcs\controller;
 
-class Index
+class Index extends Controller
 {
-    public function index(){
+
+    public function __construct($name, $action)
+    {
+        parent::__construct($name, $action);
+    }
+
+    public function index()
+    {
         return array("value" => "Bonjour");
     }
 }

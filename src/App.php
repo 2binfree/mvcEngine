@@ -12,17 +12,27 @@ include "../vendor/autoload.php";
 
 class App
 {
+    private static $instance = null;
+
     private $config;
     private $db;
-    private $controller;
     private $view;
+    private $controller;
 
-    public function __construct()
+    private function __construct()
     {
         $this->config = include("../src/Configuration/config.php");
         $this->initDb();
-        $this->controller = new controller\Controller();
+        $this->initController();
         $this->view = new view\View($this->controller);
+    }
+
+    public static function getInstance() {
+
+        if(is_null(self::$instance)) {
+            self::$instance = new App();
+        }
+        return self::$instance;
     }
 
     private function initDb(){
@@ -43,5 +53,27 @@ class App
 
     public function getController(){
         return $this->controller;
+    }
+
+    public function getDb(){
+        return $this->db;
+    }
+
+    private function initController(){
+        $url = $_SERVER['REQUEST_URI'];
+        if ($url == "/"){
+            $actionName     = "index";
+            $controllerName = "index";
+        } else {
+            $route = explode("/", $url);
+            $controllerName = $route[1];
+            if (isset($route[2])){
+                $actionName = $route[2];
+            } else {
+                $actionName = "index";
+            }
+        }
+        $controllerClass = "wcs\\controller\\" . ucwords($controllerName);
+        $this->controller = new $controllerClass($controllerName, $actionName);
     }
 }

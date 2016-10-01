@@ -8,19 +8,23 @@
 
 namespace wcs\view;
 
+use wcs\App;
+
 class View
 {
+    private $controller;
     private $viewPath;
 
-    public function __construct($controller)
-    {
+    public function __construct($controller){
         $this->viewPath  = __DIR__ ."/";
-        $this->viewPath .= $controller->controllerName . "/";
-        $this->viewPath .= $controller->actionName . '.php';
+        $this->viewPath .= $controller->getName() . "/";
+        $this->viewPath .= $controller->getAction() . '.php';
+        $this->controller = $controller;
     }
 
-    public function render($data){
-        extract($data);
+    public function render(){
+        $action = $this->controller->getAction();
+        extract($this->controller->$action());
         ob_start();
         require $this->viewPath;
         return ob_get_clean();

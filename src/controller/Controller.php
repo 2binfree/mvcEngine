@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: ubuntu
- * Date: 29/09/16
- * Time: 19:15
+ * Date: 30/09/16
+ * Time: 13:50
  */
 
 namespace wcs\controller;
@@ -11,37 +11,21 @@ namespace wcs\controller;
 
 class Controller
 {
-    public $controllerName;
-    public $actionName;
+    protected $action;
+    protected $name;
 
-    public function __construct()
+    public function __construct($name, $action)
     {
-        $url = $_SERVER['REQUEST_URI'];
-        if ($url == "/"){
-            $this->actionName       = "index";
-            $this->controllerName   = "index";
-        } else {
-            $route = explode("/", $url);
-            $this->controllerName = $route[1];
-            if (isset($route[2])){
-                $this->actionName = $route[2];
-            } else {
-                $this->actionName = "index";
-            }
-        }
+        $this->action = $action;
+        $this->name = $name;
     }
 
-    public function getController(){
-        $controllerClass = "wcs\\controller\\" . ucwords($this->controllerName);
-        return new $controllerClass();
+    public function getName(){
+        return $this->name;
     }
 
     public function getAction(){
-        return $this->actionName;
-    }
+        return $this->action;
+}
 
-    public function getResponse(){
-        $action = $this->actionName;
-        return $this->getController()->$action();
-    }
 }
