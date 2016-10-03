@@ -9,6 +9,8 @@
 
 namespace wcs\controller;
 
+use \wcs\Model as model;
+
 class Index extends Controller
 {
 
@@ -19,6 +21,8 @@ class Index extends Controller
 
     public function index()
     {
-        return array("value" => "Bonjour");
+        $user = new model\User();
+        $user->getAll();
+        return array("user" => $user);
     }
 }

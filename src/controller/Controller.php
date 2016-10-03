@@ -9,7 +9,7 @@
 namespace wcs\controller;
 
 
-class Controller
+abstract class Controller
 {
     protected $action;
     protected $name;
@@ -26,6 +26,6 @@ class Controller
 
     public function getAction(){
         return $this->action;
-}
+    }
 
 }

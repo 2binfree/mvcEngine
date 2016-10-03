@@ -8,13 +8,16 @@
 
 namespace wcs\view;
 
-use wcs\App;
 
 class View
 {
     private $controller;
     private $viewPath;
 
+    /**
+     * View constructor.
+     * @param \Controller $controller
+     */
     public function __construct($controller){
         $this->viewPath  = __DIR__ ."/";
         $this->viewPath .= $controller->getName() . "/";

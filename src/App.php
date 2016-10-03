@@ -55,6 +55,9 @@ class App
         return $this->controller;
     }
 
+    /**
+     * @return \Mysqli
+     */
     public function getDb(){
         return $this->db;
     }

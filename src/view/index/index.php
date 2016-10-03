@@ -5,6 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-    <h1><?php echo $value ?></h1>
+    <?php include "userTable.php"; ?>
 </body>
 </html>
