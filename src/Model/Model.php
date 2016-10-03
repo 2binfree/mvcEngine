@@ -22,6 +22,11 @@ abstract class Model
      */
     protected $result;
 
+    /**
+     * execute sql code
+     * return data into $result property
+     * @param $sql string
+     */
     protected function execSql($sql)
     {
         $app = App::getInstance();
@@ -31,11 +36,21 @@ abstract class Model
         }
     }
 
+    /**
+     * Return select result into custom object
+     * Class must exist, class name = model . "Data"
+     * @return object|\stdClass
+     */
     public function getRow()
     {
-        return $this->result->fetch_object("\\wcs\\Model\\UserData");
+        $class = get_class($this) . "Data";
+        return $this->result->fetch_object($class);
     }
 
+    /**
+     * return sql table name
+     * @return string
+     */
     public function getTable()
     {
         return $this->table;

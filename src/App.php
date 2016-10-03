@@ -8,15 +8,35 @@
 
 namespace wcs;
 
+use wcs\controller\Controller;
+
 include "../vendor/autoload.php";
 
 class App
 {
+    /**
+     * @var App
+     */
     private static $instance = null;
 
+    /**
+     * @var array
+     */
     private $config;
+
+    /**
+     * @var \mysqli
+     */
     private $db;
+
+    /**
+     * @var view\View
+     */
     private $view;
+
+    /**
+     * @var Controller
+     */
     private $controller;
 
     private function __construct()
@@ -27,6 +47,9 @@ class App
         $this->view = new view\View($this->controller);
     }
 
+    /**
+     * @return App
+     */
     public static function getInstance() {
 
         if(is_null(self::$instance)) {
@@ -47,10 +70,16 @@ class App
         }
     }
 
+    /**
+     * @return view\View
+     */
     public function getView(){
         return $this->view;
     }
 
+    /**
+     * @return Controller
+     */
     public function getController(){
         return $this->controller;
     }

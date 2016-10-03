@@ -11,7 +11,14 @@ namespace wcs\view;
 
 class View
 {
+    /**
+     * @var \Controller
+     */
     private $controller;
+
+    /**
+     * @var string
+     */
     private $viewPath;
 
     /**

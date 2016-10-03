@@ -20,7 +20,7 @@ class User extends Model
 
     public function getAll()
     {
-        $sql = "select * from user";
+        $sql = "select * from " . $this->table;
         $this->execSql($sql);
     }
 
