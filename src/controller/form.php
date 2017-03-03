@@ -15,7 +15,7 @@
 
     $conn = getConnection();
 
-    $sql = "INSERT INTO user (first_name, last_name, email, password) VALUES ('$firstname', '$lastname', '$email', '$password');";
+    $sql = "INSERT INTO user (firstname, lastname, email, password) VALUES ('$firstname', '$lastname', '$email', '$password');";
 
     $result = execSql($conn, $sql);
 

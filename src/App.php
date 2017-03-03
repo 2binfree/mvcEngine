@@ -44,7 +44,7 @@ class App
         $this->config = include("../src/Configuration/config.php");
         $this->initDb();
         $this->initController();
-        $this->view = new view\View($this->controller);
+        $this->view = new view\View($this->getController());
     }
 
     /**

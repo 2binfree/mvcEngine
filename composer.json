@@ -1,5 +1,6 @@
 {
     "name": "wcs/wcsform",
+    "description": "A very light MVC implementation for dev students",
     "require-dev": {
         "phpunit/phpunit": "^5.5"
     },

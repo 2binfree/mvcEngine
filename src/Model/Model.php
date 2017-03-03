@@ -31,8 +31,7 @@ abstract class Model
     {
         $app = App::getInstance();
         if (false === $this->result = $app->getDb()->query($sql)){
-            echo "failed to run query : (" . $app->getDb()->errno . ") " . $app->getDb()->error;
-            die();
+            throw new \mysqli_sql_exception("failed to run query : (" . $app->getDb()->errno . ") " . $app->getDb()->error);
         }
     }
 

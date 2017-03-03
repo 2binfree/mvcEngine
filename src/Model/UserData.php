@@ -11,8 +11,8 @@ namespace wcs\Model;
 
 class UserData
 {
-    private $first_name;
-    private $last_name;
+    private $firstname;
+    private $lastname;
     private $email;
     private $password;
 
@@ -21,7 +21,7 @@ class UserData
      */
     public function getFirstName()
     {
-        return $this->first_name;
+        return $this->firstname;
     }
 
     /**
@@ -29,7 +29,7 @@ class UserData
      */
     public function setFirstName($firstName)
     {
-        $this->first_name = $firstName;
+        $this->firstname = $firstName;
     }
 
     /**
@@ -37,7 +37,7 @@ class UserData
      */
     public function getLastName()
     {
-        return $this->last_name;
+        return $this->lastname;
     }
 
     /**
@@ -45,7 +45,7 @@ class UserData
      */
     public function setLastName($lastName)
     {
-        $this->last_name = $lastName;
+        $this->lastname = $lastName;
     }
 
     /**
