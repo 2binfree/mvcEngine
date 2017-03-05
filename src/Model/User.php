@@ -8,10 +8,8 @@
 
 namespace wcs\Model;
 
-
 class User extends Model
 {
-
 
     public function __construct()
     {
@@ -23,6 +21,4 @@ class User extends Model
         $sql = "select * from " . $this->table;
         $this->execSql($sql);
     }
-
-
 }

@@ -20,7 +20,7 @@ class View
      * View constructor.
      * @param Controller $controller
      */
-    public function __construct($controller){
+    public function __construct(Controller $controller){
         $this->viewPath  = __DIR__ ."/";
         $this->viewPath .= $controller->getName() . "/";
         $this->viewPath .= $controller->getAction() . '.php';

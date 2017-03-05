@@ -1,13 +1,14 @@
 {
     "name": "wcs/wcsform",
     "description": "A very light MVC implementation for dev students",
+    "version": "0.0.1",
     "require-dev": {
         "phpunit/phpunit": "^5.5"
     },
     "authors": [
         {
             "name": "Laurent Aubertin",
-            "email": "laubertin1967@gmail.com"
+            "email": "2binfree@gmail.com"
         }
     ],
     "require": {
@@ -16,5 +17,6 @@
         "psr-4": {
             "wcs\\": "src/"
         }
-    }
+    },
+    "license": "MIT"
 }

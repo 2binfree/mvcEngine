@@ -49,5 +49,4 @@ abstract class Controller
     public function getAction(){
         return $this->action;
     }
-
 }
