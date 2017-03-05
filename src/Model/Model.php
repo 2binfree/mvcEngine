@@ -23,6 +23,15 @@ abstract class Model
     protected $result;
 
     /**
+     *
+     */
+    public function getAll()
+    {
+        $sql = "select * from $this->table";
+        $this->execSql($sql);
+    }
+
+    /**
      * Return select result into custom object
      * Class must exist, class name = model . "Data"
      * @return object|\stdClass

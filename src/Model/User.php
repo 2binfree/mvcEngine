@@ -16,9 +16,4 @@ class User extends Model
         $this->table = "user";
     }
 
-    public function getAll()
-    {
-        $sql = "select * from " . $this->table;
-        $this->execSql($sql);
-    }
 }
