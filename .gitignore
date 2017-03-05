@@ -1,2 +1,2 @@
-.idea
 vendor
+src/Configuration/config.php

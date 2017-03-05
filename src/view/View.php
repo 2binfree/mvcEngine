@@ -1,18 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ubuntu
- * Date: 29/09/16
- * Time: 19:09
- */
 
 namespace wcs\view;
 
+use wcs\controller\Controller;
 
 class View
 {
     /**
-     * @var \Controller
+     * @var Controller
      */
     private $controller;
 
@@ -23,7 +18,7 @@ class View
 
     /**
      * View constructor.
-     * @param \Controller $controller
+     * @param Controller $controller
      */
     public function __construct($controller){
         $this->viewPath  = __DIR__ ."/";
@@ -32,7 +27,14 @@ class View
         $this->controller = $controller;
     }
 
+    /**
+     * @return string
+     * @throws \Exception
+     */
     public function render(){
+        if (!is_file($this->viewPath)){
+            throw new \Exception('Cannot render file ' . $this->viewPath);
+        }
         $action = $this->controller->getAction();
         extract($this->controller->$action());
         ob_start();
