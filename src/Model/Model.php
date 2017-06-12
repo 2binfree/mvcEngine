@@ -13,11 +13,6 @@ use wcs\App;
 abstract class Model
 {
     /**
-     * @var string
-     */
-    protected $table;
-
-    /**
      * @var \mysqli_result
      */
     protected $result;
@@ -27,7 +22,7 @@ abstract class Model
      */
     public function getAll()
     {
-        $sql = "select * from $this->table";
+        $sql = "select * from " . static::TABLE;
         $this->execSql($sql);
     }
 
@@ -48,7 +43,7 @@ abstract class Model
      */
     public function getTable()
     {
-        return $this->table;
+        return static::TABLE;
     }
 
     /**

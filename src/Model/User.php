@@ -10,10 +10,5 @@ namespace wcs\Model;
 
 class User extends Model
 {
-
-    public function __construct()
-    {
-        $this->table = "user";
-    }
-
+    const TABLE = "user";
 }
