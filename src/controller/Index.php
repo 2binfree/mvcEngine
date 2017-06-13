@@ -9,20 +9,32 @@
 
 namespace wcs\controller;
 
-use \wcs\Model as model;
+use wcs\Model\User;
 
+/**
+ * Class Index
+ * @package wcs\controller
+ */
 class Index extends Controller
 {
 
+    /**
+     * Index constructor.
+     * @param string $name
+     * @param string $action
+     */
     public function __construct($name, $action)
     {
         parent::__construct($name, $action);
     }
 
+    /**
+     * @return array
+     */
     public function index()
     {
-        $user = new model\User();
+        $user = new User();
         $user->getAll();
-        return array("user" => $user);
+        return ["user" => $user];
     }
 }

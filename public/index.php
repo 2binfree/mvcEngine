@@ -4,8 +4,7 @@
  * Date: 22/09/16
  * Time: 10:35
  */
-require_once "../src/App.php";
+require_once "../src/Application.php";
 
-$app = wcs\App::getInstance();
-echo $app->getView()->render();
-
+$application = wcs\Application::getInstance();
+echo $application->getView()->render();

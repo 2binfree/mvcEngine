@@ -20,7 +20,8 @@ class View
      * View constructor.
      * @param Controller $controller
      */
-    public function __construct(Controller $controller){
+    public function __construct(Controller $controller)
+    {
         $this->viewPath  = __DIR__ ."/";
         $this->viewPath .= $controller->getName() . "/";
         $this->viewPath .= $controller->getAction() . '.php';
@@ -31,8 +32,9 @@ class View
      * @return string
      * @throws \Exception
      */
-    public function render(){
-        if (!is_file($this->viewPath)){
+    public function render()
+    {
+        if (!is_file($this->viewPath)) {
             throw new \Exception('Cannot render file ' . $this->viewPath);
         }
         $action = $this->controller->getAction();

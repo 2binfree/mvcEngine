@@ -6,9 +6,9 @@
  * Time: 12:56
  */
 
-namespace wcs\model;
+namespace wcs\Model;
 
-use wcs\App;
+use wcs\Application;
 
 abstract class Model
 {
@@ -49,18 +49,17 @@ abstract class Model
     /**
      * @param $sql
      * @param array $params
-     * @return bool
      */
-    protected function execSql($sql, $params = array())
+    protected function execSql($sql, $params = []): void
     {
-        $db = App::getInstance()->getDb();
-        $statement = $db->prepare($sql);
+        $database = Application::getInstance()->getDb();
+        $statement = $database->prepare($sql);
         if (count($params) > 0) {
             $types = $this->convertType($params);
             $statement->bind_param($types, $params);
         }
         if (false === $statement->execute()) {
-            throw new \mysqli_sql_exception("failed to run query : (" . $db->errno . ") " . $db->error);
+            throw new \mysqli_sql_exception("failed to run query : (" . $database->errno . ") " . $database->error);
         }
         $this->result = $statement->get_result();
     }

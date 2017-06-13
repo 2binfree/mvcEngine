@@ -8,7 +8,6 @@
 
 namespace wcs\controller;
 
-
 abstract class Controller
 {
     /**
@@ -38,7 +37,8 @@ abstract class Controller
      * return controller name
      * @return string
      */
-    public function getName(){
+    public function getName()
+    {
         return $this->name;
     }
 
@@ -46,7 +46,8 @@ abstract class Controller
      * return controller action name
      * @return string
      */
-    public function getAction(){
+    public function getAction()
+    {
         return $this->action;
     }
 }
